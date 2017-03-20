@@ -5,12 +5,17 @@
  */
 package boletin22;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 /**
@@ -42,17 +47,33 @@ public void consultar(){
     String libros=JOptionPane.showInputDialog("Libro que queres ver si hai: ");
             boolean atopado=false;
             for(int i=0;i<libreria.size();i++){
-                if(libreria.get(i).titulo.equals(libros));
+                if(libreria.get(i).titulo.equals(libros)){
                 System.out.println("O libro está na lista");
                 atopado=true;
                 System.out.println("Titulo do libro: "+libreria.get(i).titulo+" Precio: "+ (libreria.get(i).precio));
+                }
             }
-            if(atopado=false)
+            if(atopado==false)
                 System.out.println("O libro non está na lista");
             
 } 
     
-      
+public void consultarAutor(){
+   
+    
+    String libros=JOptionPane.showInputDialog("Autor que queres ver si hai: ");
+            boolean atopado=false;
+            for(int i=0;i<libreria.size();i++){
+                if(libreria.get(i).autor.equals(libros)){
+                
+                atopado=true;
+                System.out.println(libreria.get(i).autor + " titulo:"+ libreria.get(i).titulo);
+                }
+            }
+            if(atopado==false)
+                System.out.println("O libro non está na lista");
+            
+}       
 
     
 
@@ -76,6 +97,10 @@ public void borrarLibrosAcero(){
 
     }
 }
+public void ordenar(){
+    Collections.sort(libreria);
+    
+    }
 public void escribirTexto(String nombreFichero){
          File fich;
          PrintWriter f = null;
@@ -96,24 +121,31 @@ public void escribirTexto(String nombreFichero){
             f.close();
         }      
 }   
-File fich;
-    Scanner sc;
+    
 
-    public void Ler(String nombreFich) {
+    public void leerLineas() throws FileNotFoundException, IOException{
+        String s1;
+        String s2;
+ 
+        
+        BufferedReader br = new BufferedReader (new FileReader ("lib.txt"));
+ 
        
-        fich = new File(nombreFich);
-        try {
-            sc = new Scanner(fich);
-            while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
+        do{
+        s1 = br.readLine();
+        if(s1!=null){
+            StringTokenizer st = new StringTokenizer(s1,",");
+            System.out.println ("Libros: " + s1);
+            while (st.hasMoreTokens()){
+                libreria.add(new Libro(st.nextToken(),st.nextToken(),Float.parseFloat(st.nextToken()),Integer.parseInt(st.nextToken())));
+               
             }
-
-        } catch (FileNotFoundException ex) {
-            ex.getMessage();
-        } finally {
-            sc.close();
+                
         }
-    }
+        }
+        while(s1!=null);
 
-   
+ 
 }
+   
+    }

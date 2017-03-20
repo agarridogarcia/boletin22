@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Ara
  */
-public class Libro {
+public class Libro implements Comparable {
     String titulo,autor;
     float precio;
      int unidades;
@@ -60,53 +60,63 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" + "titulo=" + titulo + ", autor=" + autor + ", precio=" + precio + ", unidades=" + unidades + '}';
+        return   titulo + "," + autor + "," + precio + "," + unidades;
     }
 
-//    @Override
-//    public int hashCode() {
-//        int hash = 7;
-//        hash = 83 * hash + Objects.hashCode(this.titulo);
-//        hash = 83 * hash + Objects.hashCode(this.autor);
-//        hash = 83 * hash + Float.floatToIntBits(this.precio);
-//        hash = 83 * hash + this.unidades;
-//        return hash;
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        final Libro other = (Libro) obj;
-//        if (!Objects.equals(this.titulo, other.titulo)) {
-//            return false;
-//        }
-//        if (!Objects.equals(this.autor, other.autor)) {
-//            return false;
-//        }
-//        if (Float.floatToIntBits(this.precio) != Float.floatToIntBits(other.precio)) {
-//            return false;
-//        }
-//        if (this.unidades != other.unidades) {
-//            return false;
-//        }
-//        return true;
-//    }
-//
-//    public int compareToIgnoreCase(String str) {
-//        return titulo.compareToIgnoreCase(str);
-//    }
-//
-//    public int compareTo(String anotherString) {
-//        return titulo.compareTo(anotherString);
-//    }
-//
-//    
+    @Override
+    public int compareTo(Object o) {
+      Libro li=(Libro)o;
+        
+        if(this.titulo.compareToIgnoreCase(li.titulo)==0)
+        return 0;
+       
+        else if (this.titulo.compareToIgnoreCase(li.titulo)>0)
+            return 1;
+        else
+            return -1;
+        
+    }
 
+    
+
+   
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.titulo);
+        hash = 97 * hash + Objects.hashCode(this.autor);
+        hash = 97 * hash + Float.floatToIntBits(this.precio);
+        hash = 97 * hash + this.unidades;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (Float.floatToIntBits(this.precio) != Float.floatToIntBits(other.precio)) {
+            return false;
+        }
+        if (this.unidades != other.unidades) {
+            return false;
+        }
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.autor, other.autor)) {
+            return false;
+        }
+        return true;
+    }
    
 }
 
