@@ -12,9 +12,10 @@ import java.util.Objects;
  * @author Ara
  */
 public class Libro implements Comparable {
-    String titulo,autor;
+    String titulo;
+    String autor;
     float precio;
-     int unidades;
+    int unidades;
 
     public Libro() {
     }

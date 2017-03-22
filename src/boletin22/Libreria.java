@@ -23,9 +23,9 @@ import javax.swing.JOptionPane;
  * @author Ara
  */
 public class Libreria {
-     private Scanner scan;
+    private Scanner scan;
     private PrintWriter escribe;
-    ArrayList <Libro> libreria = new ArrayList<Libro>();
+    private ArrayList <Libro> libreria = new ArrayList<Libro>();
     
     public String dameTitulo(){
 return(JOptionPane.showInputDialog("Titulo: "));
