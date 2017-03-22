@@ -13,10 +13,11 @@ public class Boletin22 {
        
         int opcion;
          li.leerLineas();
+         //li.ler("lib.txt");
          do{
              try{
                  
-                 opcion=Integer.parseInt(JOptionPane.showInputDialog("***MENU***\n1 Engadir \n2 Consultar por titulo \n3 Visualizar \n4 Borrar libros a 0 \n5 Ordenar libros \n6 Consultar autor  \n7 Salir"));
+                 opcion=Integer.parseInt(JOptionPane.showInputDialog("***MENU***\n1 Engadir \n2 Consultar por titulo \n3 Visualizar \n4 Borrar libros a 0 \n5 Ordenar libros \n6 Consultar autor \n7 Modificar titulo \n8 Salir"));
                  
              }catch(Exception ex){
                  System.out.println(ex.getMessage());
@@ -35,11 +36,13 @@ public class Boletin22 {
                 break;
             case 6:li.consultarAutor();
                 break;
-            case 7:{li.escribirTexto("lib.txt");System.exit(0);}
+            case 7:li.modificar();
+             break;
+            case 8:{li.escribirTexto("lib.txt");System.exit(0);}
             
     }
     
-}while(opcion<7);
+}while(opcion<8);
 
     
 }

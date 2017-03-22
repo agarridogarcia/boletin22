@@ -23,6 +23,8 @@ import javax.swing.JOptionPane;
  * @author Ara
  */
 public class Libreria {
+     private Scanner scan;
+    private PrintWriter escribe;
     ArrayList <Libro> libreria = new ArrayList<Libro>();
     
     public String dameTitulo(){
@@ -135,7 +137,7 @@ public void escribirTexto(String nombreFichero){
         s1 = br.readLine();
         if(s1!=null){
             StringTokenizer st = new StringTokenizer(s1,",");
-            System.out.println ("Libros: " + s1);
+            System.out.println ("Libros:" + s1);
             while (st.hasMoreTokens()){
                 libreria.add(new Libro(st.nextToken(),st.nextToken(),Float.parseFloat(st.nextToken()),Integer.parseInt(st.nextToken())));
                
@@ -147,5 +149,28 @@ public void escribirTexto(String nombreFichero){
 
  
 }
-   
+    public void ler(String nomFich){
+        String[]aux;
+        try{
+            scan = new Scanner(new File(nomFich));
+            while(scan.hasNextLine()){
+                aux = scan.nextLine().split(",");
+                libreria.add(new Libro (aux[0], Float.parseFloat(aux[1])));
+            }
+        }catch(Exception ex){
+            System.out.println(ex + " File not found");
+        }finally{
+            scan.close();
+        }
     }
+    
+   public void modificar(){
+ String modificar=JOptionPane.showInputDialog("titulo del libro que quieres modificar:");
+ for(int i=0;i<libreria.size();i++){
+     if(libreria.get(i).getTitulo().equals(modificar)){
+         libreria.get(i).setTitulo(dameTitulo());
+         
+     }
+ }
+    }
+}

@@ -26,6 +26,10 @@ public class Libro implements Comparable {
         this.unidades = unidades;
     }
 
+    Libro(String string, float parseFloat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getTitulo() {
         return titulo;
     }
@@ -60,7 +64,7 @@ public class Libro implements Comparable {
 
     @Override
     public String toString() {
-        return   titulo + "," + autor + "," + precio + "," + unidades;
+        return titulo + "," + autor + "," + precio + "," + unidades;
     }
 
     @Override
