@@ -149,20 +149,6 @@ public void escribirTexto(String nombreFichero){
 
  
 }
-    public void ler(String nomFich){
-        String[]aux;
-        try{
-            scan = new Scanner(new File(nomFich));
-            while(scan.hasNextLine()){
-                aux = scan.nextLine().split(",");
-                libreria.add(new Libro (aux[0], Float.parseFloat(aux[1])));
-            }
-        }catch(Exception ex){
-            System.out.println(ex + " File not found");
-        }finally{
-            scan.close();
-        }
-    }
     
  public void modificar(){
  String modificar=JOptionPane.showInputDialog("Libro que queres modificar: ");

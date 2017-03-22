@@ -12,10 +12,10 @@ import java.util.Objects;
  * @author Ara
  */
 public class Libro implements Comparable {
-    String titulo;
-    String autor;
-    float precio;
-    int unidades;
+    public String titulo;
+    public String autor;
+    public float precio;
+    public int unidades;
 
     public Libro() {
     }
@@ -27,9 +27,7 @@ public class Libro implements Comparable {
         this.unidades = unidades;
     }
 
-    Libro(String string, float parseFloat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     public String getTitulo() {
         return titulo;
