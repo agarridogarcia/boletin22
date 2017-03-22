@@ -13,11 +13,11 @@ public class Boletin22 {
        
         int opcion;
          li.leerLineas();
-         //li.ler("lib.txt");
+         
          do{
              try{
                  
-                 opcion=Integer.parseInt(JOptionPane.showInputDialog("***MENU***\n1 Engadir \n2 Consultar por titulo \n3 Visualizar \n4 Borrar libros a 0 \n5 Ordenar libros \n6 Consultar autor \n7 Modificar titulo \n8 Salir"));
+                 opcion=Integer.parseInt(JOptionPane.showInputDialog("***MENU***\n1 Engadir \n2 Consultar por titulo \n3 Visualizar \n4 Borrar libros a 0 \n5 Ordenar libros \n6 Consultar autor \n7 Modificar libro \n8 Salir"));
                  
              }catch(Exception ex){
                  System.out.println(ex.getMessage());

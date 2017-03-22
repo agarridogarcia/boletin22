@@ -164,13 +164,19 @@ public void escribirTexto(String nombreFichero){
         }
     }
     
-   public void modificar(){
- String modificar=JOptionPane.showInputDialog("titulo del libro que quieres modificar:");
- for(int i=0;i<libreria.size();i++){
-     if(libreria.get(i).getTitulo().equals(modificar)){
-         libreria.get(i).setTitulo(dameTitulo());
+ public void modificar(){
+ String modificar=JOptionPane.showInputDialog("Libro que queres modificar: ");
+    for(int i=0;i<libreria.size();i++){
+        if(libreria.get(i).getTitulo().equals(modificar)){
+            libreria.get(i).setAutor(dameAutor());
+            libreria.get(i).setTitulo(dameTitulo());
+            libreria.get(i).setPrecio(pedirPrecio());
+            libreria.get(i).setUnidades(pedirNumExemplares());
+                  
+        }
          
-     }
- }
     }
+ }
+ 
+
 }
